@@ -1,0 +1,15 @@
+<app-card>
+  <article>
+    <h2>{{task().title}}</h2>
+    <time>{{task().date | date:'fullDate' }}</time>
+    <p>{{task().summary}}</p>
+    <p class="actions">
+      @if (!task().status) {
+        <button (click)="onClompletedClick()">Complete</button>
+      }
+      @else {
+        <button>Delete</button>
+      }
+    </p>
+  </article>
+</app-card>

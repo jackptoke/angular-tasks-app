@@ -1,0 +1,21 @@
+<section>
+  @if (user() !== undefined) {
+  <header>
+    <h2>{{ user()?.name }}</h2>
+    <menu>
+      <button (click)="onAddTaskClick()">Add Task</button>
+    </menu>
+
+  </header>
+  @if (showNewTaskForm()) {
+    <app-new-task [userId]="this.user()!.id" (closeNewTask)="onNewTaskFormClosed()" />
+  }
+  @if (userTasks().length > 0) {
+    <ul>
+      @for (task of userTasks(); track task.title) {
+        <li><app-task [task]="task" (completedTaskId)="onTaskCompleted($event)" /></li>
+      }
+  </ul>
+  }
+}
+</section>

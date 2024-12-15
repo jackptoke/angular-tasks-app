@@ -1,0 +1,6 @@
+<app-card>
+  <button (click)="onClick()" [class.active]="isSelected()">
+    <img [src]="siImagePath()" [alt]="siUser().name"/> <!-- selectedUser().name -->
+    <span>{{ siUser().name }}</span>
+  </button>
+</app-card>
